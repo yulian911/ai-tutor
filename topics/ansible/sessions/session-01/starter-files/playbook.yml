@@ -1,0 +1,39 @@
+---
+# Playbook: wdrożenie nginx na serwerach webowych
+# Projekt: webstack-automation
+
+# TODO: uzupełnij name, hosts, become
+- name: TODO
+  hosts: TODO
+  become: TODO
+
+  tasks:
+    # TODO: Zainstaluj nginx
+    # Moduł: ansible.builtin.apt
+    # name: nginx
+    # state: present
+    # update_cache: true
+    # tags: [install]
+
+    # TODO: Uruchom i włącz nginx
+    # Moduł: ansible.builtin.service
+    # name: nginx
+    # state: started
+    # enabled: true
+    # tags: [service]
+
+    # TODO: Skopiuj stronę startową
+    # Moduł: ansible.builtin.copy
+    # content: "<h1>{{ app_name }} — webserver-{{ inventory_hostname }}</h1>\n"
+    # dest: /var/www/html/index.html
+    # mode: '0644'
+    # owner: www-data
+    # group: www-data
+    # notify: Restart nginx
+    # tags: [config]
+
+  handlers:
+    # TODO: Handler restartu nginx
+    # Moduł: ansible.builtin.service
+    # name: nginx
+    # state: restarted

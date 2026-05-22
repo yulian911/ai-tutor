@@ -1,0 +1,66 @@
+---
+# Starter file — przykład: zarządzanie użytkownikami systemowymi
+# Technologia: Ansible >= 2.17
+# Poziom: junior+
+#
+# Wymagania:
+# 1. Utwórz grupę "devops" na wszystkich hostach
+# 2. Utwórz listę użytkowników (z group_vars) z kluczami SSH
+# 3. Każdy użytkownik: home directory, shell /bin/bash, grupa devops
+# 4. Dodaj klucz SSH z zmiennej (nie hardcode)
+# 5. Usuń użytkowników z listy removed_users
+# 6. Użyj pętli (loop) zamiast oddzielnych tasków dla każdego usera
+# 7. Handler: odśwież sudo po zmianie sudoers
+# 8. Tagi: groups, users, ssh-keys, sudoers
+
+- name: TODO
+  hosts: all
+  become: TODO
+
+  vars:
+    # Przenieś te zmienne do group_vars/all.yml w realnym projekcie
+    users_to_create:
+      - name: alice
+        ssh_key: "{{ alice_ssh_key }}"  # definiowane w group_vars/vault.yml
+        sudo: true
+      - name: bob
+        ssh_key: "{{ bob_ssh_key }}"
+        sudo: false
+
+    users_to_remove:
+      - charlie
+
+  tasks:
+    # TODO: Utwórz grupę devops
+    # Moduł: ansible.builtin.group
+    # tag: groups
+
+    # TODO: Utwórz użytkowników z pętlą (loop: "{{ users_to_create }}")
+    # Moduł: ansible.builtin.user
+    # name: "{{ item.name }}"
+    # groups: devops
+    # shell: /bin/bash
+    # create_home: true
+    # tag: users
+
+    # TODO: Dodaj klucze SSH dla użytkowników
+    # Moduł: ansible.posix.authorized_key
+    # user: "{{ item.name }}"
+    # key: "{{ item.ssh_key }}"
+    # state: present
+    # tag: ssh-keys
+
+    # TODO: Skonfiguruj sudo dla userów z sudo: true
+    # Moduł: ansible.builtin.template lub ansible.builtin.copy
+    # when: item.sudo | bool
+    # notify: Reload sudo
+    # tag: sudoers
+
+    # TODO: Usuń użytkowników z listy removed_users
+    # Moduł: ansible.builtin.user
+    # state: absent
+    # remove: true
+    # tag: users
+
+  handlers:
+    # TODO: handler reload sudo (sshd lub sudo service)

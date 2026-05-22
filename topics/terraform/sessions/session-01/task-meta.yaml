@@ -1,0 +1,13 @@
+task_id: terraform-networking-vpc-01
+task_type: work-ticket
+level: junior
+topic: terraform
+project: inventory-api-infra
+project_stage: networking-vpc
+uses_current_best_practices: true
+terraform_version: ">=1.9"
+aws_provider_version: "~>5.50"
+validator_script: ../../validators/validate.sh
+score_threshold: 7
+repeat_after_sessions: 3
+failure_tags: []

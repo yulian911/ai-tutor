@@ -1,0 +1,16 @@
+id,name,category,quantity,price
+1,Laptop Pro,electronics,25,1299.99
+2,Office Chair,furniture,50,399.50
+3,USB Hub,electronics,15,29.99
+4,Standing Desk,furniture,bad_number,599.00
+5,Monitor 4K,electronics,10,799.00
+6,Webcam HD,electronics,0,149.99
+7,Desk Lamp,furniture,30,45.00
+8,Keyboard,electronics,40,89.99
+9,Mouse,electronics,-5,49.99
+10,Bookshelf,furniture,20,299.00
+11,Headphones,electronics,8,199.99
+12,Filing Cabinet,furniture,12,189.50
+13,Power Strip,electronics,60,25.99
+14,Monitor Stand,furniture,invalid_price,75.00
+15,Docking Station,electronics,5,349.99

@@ -1,0 +1,6 @@
+---
+# Zmienne dla grupy webservers
+# TODO: Uzupełnij wartości
+
+nginx_port: TODO   # 80
+app_name: "TODO"   # "Inventory API"

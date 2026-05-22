@@ -1,0 +1,50 @@
+---
+# Starter file — przykład: wdrożenie nginx na webservers
+# Technologia: Ansible >= 2.17
+# Poziom: junior
+#
+# Wymagania:
+# 1. become: true (potrzebne do instalacji pakietów)
+# 2. Zainstaluj nginx przez apt
+# 3. Upewnij się, że nginx jest uruchomiony i włączony przy starcie
+# 4. Skopiuj prosty plik index.html na serwer
+# 5. Dodaj handler restartu nginx (wywoływany gdy zmieni się konfiguracja)
+# 6. Użyj tagów: install, config, service
+
+# TODO: uzupełnij name playbooka
+- name: TODO
+  hosts: webservers
+  become: TODO
+
+  vars:
+    nginx_port: 80
+    site_name: "Inventory API"
+
+  tasks:
+    # TODO: Zainstaluj nginx
+    # Moduł: ansible.builtin.apt
+    # name: nginx
+    # state: present
+    # update_cache: true
+    # tag: install
+
+    # TODO: Upewnij się że nginx jest uruchomiony i enabled
+    # Moduł: ansible.builtin.service
+    # name: nginx
+    # state: started
+    # enabled: true
+    # tag: service
+
+    # TODO: Skopiuj index.html
+    # Moduł: ansible.builtin.copy
+    # content: "<h1>{{ site_name }}</h1>"
+    # dest: /var/www/html/index.html
+    # mode: '0644'
+    # notify: Restart nginx
+    # tag: config
+
+  handlers:
+    # TODO: dodaj handler restart nginx
+    # Moduł: ansible.builtin.service
+    # name: nginx
+    # state: restarted

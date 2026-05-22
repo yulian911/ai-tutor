@@ -1,0 +1,32 @@
+{
+  "manifestVersion": 2,
+  "files": {
+    "skills": {
+      "learning-orchestrator": {
+        "files": [
+          "SKILL.md"
+        ]
+      },
+      "task-generator": {
+        "files": [
+          "SKILL.md"
+        ]
+      },
+      "solution-reviewer": {
+        "files": [
+          "SKILL.md"
+        ]
+      },
+      "progress-manager": {
+        "files": [
+          "SKILL.md"
+        ]
+      },
+      "rule-view": {
+        "files": [
+          "SKILL.md"
+        ]
+      }
+    }
+  }
+}

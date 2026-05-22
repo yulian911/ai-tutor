@@ -1,0 +1,11 @@
+task_id: bash-csv-processor-02
+task_type: work-ticket
+level: junior+
+topic: bash
+project: ops-toolkit
+project_stage: csv-processor
+uses_current_best_practices: true
+validator_script: ../../validators/validate.sh
+score_threshold: 7
+repeat_after_sessions: 3
+failure_tags: []

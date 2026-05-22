@@ -1,0 +1,12 @@
+task_id: ansible-nginx-deploy-01
+task_type: work-ticket
+level: junior
+topic: ansible
+project: webstack-automation
+project_stage: nginx-deploy
+uses_current_best_practices: true
+ansible_version: ">=2.17"
+validator_script: ../../validators/validate.sh
+score_threshold: 7
+repeat_after_sessions: 3
+failure_tags: []
