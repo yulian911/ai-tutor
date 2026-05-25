@@ -1,0 +1,35 @@
+{
+  "permissions": {
+    "allow": [
+      "Read",
+      "Write",
+      "Edit",
+      "Glob",
+      "Grep",
+      "Bash(terraform fmt*)",
+      "Bash(terraform validate*)",
+      "Bash(terraform init*)",
+      "Bash(shellcheck*)",
+      "Bash(bash -n *)",
+      "Bash(ansible-playbook --syntax-check*)",
+      "Bash(ansible-lint*)",
+      "Bash(kubectl apply --dry-run*)",
+      "Bash(find * -type f*)",
+      "Bash(ls*)"
+    ],
+    "deny": []
+  },
+  "hooks": {
+    "PostToolUse": [
+      {
+        "matcher": "Write",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "echo \"[hook] Zapisano plik: $CLAUDE_TOOL_OUTPUT\""
+          }
+        ]
+      }
+    ]
+  }
+}

@@ -3,9 +3,9 @@ name: progress-manager
 description: >
   Update progress files after a session review: global-progress.md, current-state.md,
   spaced-repetition.md, weak-areas.md. Use when the user says "zaktualizuj progres",
-  "progress manager [temat] [wynik]", or when invoked automatically by solution-reviewer.
-  Handles failure tags, level promotion (requires 3 consecutive sessions ≥ 8), and
-  scheduling the next session.
+  "progress manager [temat] [wynik]". Handles failure tags, level promotion (requires 
+  3 consecutive sessions ≥ 8), and scheduling the next session.
+disable-model-invocation: true
 allowed-tools:
   - Read
   - Write

@@ -28,37 +28,26 @@ Każdy task musi mieć jawnie określony typ. Preferuj `work-ticket`, `bugfix`, 
 
 `exercise` | `work-ticket` | `bugfix` | `code-review` | `incident` | `interview` | `legacy-migration`
 
-## Standard taska
+## Standardy (szczegóły w rules/)
 
-Każdy task musi zawierać: typ, poziom, temat, etap projektu, kontekst, cel, dane wejściowe, pliki do użycia, listę wymagań, ograniczenia, definition of done, najczęstsze błędy, tip produkcyjny, wskazówkę do rozmowy technicznej.
+- Standard taska → `.claude/rules/task-standards.md`
+- Standard review → `.claude/rules/review-standards.md`
+- Scorecard i progi → `.claude/rules/scoring.md`
+- Przepływ sesji → `.claude/rules/session-flow.md`
 
-## Standard review
+## Komendy
 
-Każdy review report musi zawierać: wynik końcowy, co zrobione dobrze, błędy i braki, jak poprawić, best practices, tip produkcyjny, częsty błąd juniorów, jak powiedzieć o tym na rozmowie, ocenę aktualności rozwiązania, scorecard, lista tematów do powtórki.
+Slash commands w `.claude/commands/`, skille w `.claude/skills/<name>/SKILL.md`.
 
-## Scorecard
+| Komenda | Co robi |
+|---------|---------|
+| `/session` | Startuje sesję (learning-orchestrator → task-generator) |
+| `/task` | Generuje task z plikami startowymi |
+| `/review` | Sprawdza rozwiązanie, tworzy review-report.md |
+| `/progress` | Aktualizuje progres i powtórki |
+| `/rule-review` | Audyt pliku reguł AI |
 
-Oceniaj każdy obszar w skali `0–10`:
-- poprawność, czytelność, best practices, bezpieczeństwo, gotowość do pracy, samodzielność rozwiązania
-
-## Skille systemu
-
-Skille są zarejestrowane jako slash commands w `.claude/commands/` i ładowane automatycznie przez Claude Code. Wywoływać przez `/skill-name` lub naturalnym językiem.
-
-| Skill | Slash command | Kiedy używać |
-|-------|---------------|--------------|
-| `learning-orchestrator` | `/learning-orchestrator` | Startowanie sesji, wybór tematu i poziomu |
-| `task-generator` | `/task-generator` | Generowanie taska, starter files, danych |
-| `solution-reviewer` | `/solution-reviewer` | Sprawdzenie rozwiązania, raport review |
-| `progress-manager` | `/progress-manager` | Aktualizacja progresu i powtórek |
-| `rule-view` | `/rule-view` | Audyt pliku reguł AI (CLAUDE.md, AGENTS.md itp.) |
-
-Typowy przepływ sesji:
-```
-/learning-orchestrator → /task-generator → [użytkownik rozwiązuje] → /solution-reviewer → /progress-manager
-```
-
-Pełne instrukcje każdego skilla: `.claude/skills/<name>/SKILL.md`
+Przepływ: `/session` → `/task` → [rozwiązujesz] → `/review` → `/progress`
 
 ## Skrypty walidujące
 

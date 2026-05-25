@@ -12,59 +12,49 @@ allowed-tools:
   - Write
 ---
 
-# Learning Orchestrator
+## Aktualny stan nauki
 
-Decide what to practice next based on history, then hand off to task-generator.
+### Całkowity progres
+!`cat progress/global-progress.md 2>/dev/null || echo "[brak danych]"`
 
-## Procedure
+### Zaplanowane powtórki
+!`cat progress/spaced-repetition.md 2>/dev/null || echo "[brak danych]"`
 
-### Step 1 — Read global state
+### Słabe obszary
+!`cat progress/weak-areas.md 2>/dev/null || echo "[brak danych]"`
 
-1. Read `progress/global-progress.md`.
-2. Read `progress/spaced-repetition.md`.
+---
 
-### Step 2 — Resolve topic
+## Twoja procedura
 
-- If the user named a topic (e.g. `terraform`) — use it.
-- Otherwise — pick the topic practiced least recently or the one with a due/overdue repeat.
+Aby wybrać co ćwiczyć:
 
-### Step 3 — Read topic history
+1. **Czytaj powyższe dane** — całkowity progres, zaplanowane powtórki, słabe obszary.
+2. **Zastosuj logikę z orchestration-logic.md** — zdecyduj temat, poziom, typ taska.
+3. **Przekaż decyzję do task-generator** — invoke `/task` z parametrami.
 
-1. Read `topics/<temat>/current-state.md`.
-2. Find and read the most recent session file in `topics/<temat>/sessions/` (highest `session-NN` number).
-3. If `current-state.md` does not exist, create it with default level `junior`.
+Jeśli użytkownik wskazał konkretny temat lub poziom — użyj tego zamiast wybierać.
 
-### Step 4 — Decide session parameters
+---
 
-Based on history, choose:
+## Output
 
-| Parameter | Options |
-|-----------|---------|
-| Level | `junior` → `junior+` → `mid-ready` → `project-capstone` |
-| Task type | `exercise` \| `work-ticket` \| `bugfix` \| `code-review` \| `incident` \| `interview` \| `legacy-migration` |
-| Project stage | next stage from `topics/<temat>/roadmap.md` |
-
-Rules:
-- If the last session score was < 7 — propose a repeat instead of advancing.
-- Prefer `work-ticket`, `bugfix`, `incident` when the goal is job readiness.
-- Do not jump levels (e.g. `junior` → `mid-ready` skips `junior+`).
-- Check `spaced-repetition.md` for any due or overdue repeat — prioritize it.
-
-### Step 5 — Output decision and hand off
-
-Print the decision block below, then invoke `task-generator`.
-
-## Output format
+Po podjęciu decyzji, wydrukuj decyzję:
 
 ```
 ## Decyzja orchestratora
 
-**Temat:** terraform
-**Poziom:** junior+
-**Typ taska:** work-ticket
-**Etap projektu:** networking — security groups
-**Uzasadnienie:** Poprzednia sesja zakończyła się wynikiem 8/10. Następny etap roadmapy.
-**Zaplanowane powtórki:** brak
+**Temat:** <temat>
+**Poziom:** <poziom>  
+**Typ taska:** <typ>
+**Etap projektu:** <etap>
+**Uzasadnienie:** <krótkie wyjaśnienie>
 
-→ Przekazuję do task-generator.
+→ Generuję task...
 ```
+
+Wtedy invoke `task-generator`.
+
+---
+
+Szczegóły: patrz [orchestration-logic.md](orchestration-logic.md)
